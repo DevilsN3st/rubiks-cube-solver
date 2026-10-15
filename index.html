@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rubik's Cube Solver</title>
+  </head>
+  <body>
+    <div id="app">
+      <main id="viewport">
+        <div id="status" class="status">Loading solver tables…</div>
+        <p class="hint">Drag to rotate · Keys U D L R F B turn faces (Shift for prime)</p>
+      </main>
+
+      <aside id="panel">
+        <header>
+          <h1>Rubik's Cube Solver</h1>
+          <p class="subtitle">Kociemba two-phase algorithm · usually ≤ 22 moves</p>
+        </header>
+
+        <section class="actions">
+          <button id="scramble">Scramble</button>
+          <button id="solve" class="primary" disabled>Solve</button>
+          <button id="reset">Reset</button>
+        </section>
+
+        <section>
+          <h2>Solution</h2>
+          <div id="solution" class="moves empty">Scramble the cube, then press Solve.</div>
+          <div class="playback">
+            <button id="step-back" title="Step back" disabled>⏮</button>
+            <button id="play" title="Play / pause" disabled>▶</button>
+            <button id="step-forward" title="Step forward" disabled>⏭</button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Turn a face</h2>
+          <div id="move-pad" class="move-pad"></div>
+        </section>
+
+        <section>
+          <h2>Apply an algorithm</h2>
+          <form id="alg-form" class="alg-form">
+            <input id="alg-input" placeholder="e.g. R U R' U'" autocomplete="off" spellcheck="false" />
+            <button type="submit">Apply</button>
+          </form>
+          <p id="alg-error" class="error"></p>
+        </section>
+
+        <section>
+          <h2>Speed</h2>
+          <input id="speed" type="range" min="60" max="600" value="250" />
+        </section>
+
+        <section>
+          <h2>Cube state</h2>
+          <div id="net" class="net"></div>
+          <code id="facelets" class="facelets"></code>
+        </section>
+      </aside>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
